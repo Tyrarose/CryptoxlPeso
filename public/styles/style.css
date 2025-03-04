@@ -1,0 +1,234 @@
+/* General Styling */
+body {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	background: rgba(10, 10, 20, 0.9);
+	color: #fff; /* Ensures all text is white */
+	
+}
+
+*{
+	/* border: 1px red dotted; */
+}
+
+/* Smooth Background Animation */
+@keyframes gradient-animation {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+.gradient-background {
+	background-color: hsla(0, 0%, 0%, 1);
+	background-image: radial-gradient(at 100% 67%, hsla(283, 44%, 40%, 1) 0px, transparent 50%),
+					  radial-gradient(at 100% 0%, hsla(32, 62%, 66%, 1) 0px, transparent 50%),
+					  radial-gradient(at 65% 9%, hsla(283, 44%, 40%, 1) 0px, transparent 50%);
+	min-height: 100vh;
+	background-attachment: fixed;
+	background-size: 200% 200%;
+	animation: gradient-animation 30s ease-in-out infinite;
+}
+
+/* Container */
+.container {
+	max-width: 1400px;
+	margin: auto;
+	padding: 40px 20px;
+}
+
+/* Typography */
+.title {
+	margin-top: 60px; /* Add more space above */
+	margin-bottom: 20px; /* Space between title and subtitle */
+}
+
+.main-title {
+	font-size: 3.5rem; /* Make the title bigger if needed */
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+.subtitle {
+	margin-bottom: 50px; /* Add more space below subtitle */
+}
+
+.subtitle-text {
+	font-size: 1rem;
+	opacity: 0.9;
+	color: #fff;
+}
+
+
+.trending-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end; /* Align items to the bottom */
+	padding: 20px 0; /* Increase vertical spacing */
+	margin-bottom: 15px; /* Adds space between title and cards */
+}
+
+.title-text {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 0; /* Remove excess margin */
+}
+
+.date-time {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 0; /* Align text properly */
+	text-align: right;
+}
+
+
+/* Cards Grid */
+.coin-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.card-container {
+	flex: 1 1;
+	min-width: 320px;
+	max-width: 320px;
+}
+
+/* Glass Effect on Cards */
+.custom-card {
+	display: flex;
+	align-items: center;
+	background: #00000012;
+	border-radius: 15px;
+	padding: 15px;
+	backdrop-filter: blur(20px);
+	border-left: 2px solid #534e4ed4;
+	border-bottom: 2px solid #534e4ed4;
+	box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	width: 100%;
+	color: #fff;
+}
+
+.custom-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Icon */
+.icon-holder {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 15px;
+}
+
+.icon-holder img {
+	width: 100%;
+	height: auto;
+}
+
+/* Coin Information */
+.coin-info {
+	display: flex;
+	align-items:center;
+	width: 100%;
+}
+
+.coin-grid-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* Two equal columns */
+	gap: 5px;
+	width: 100%;
+	align-items: end;
+}
+
+.coin-name, .symbol {
+	text-align: left;
+}
+
+.price-local, .price-usdt {
+	text-align: right; /* Align right */
+}
+
+.coin-name {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.price-local {
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.symbol {
+	font-size: 1rem;
+	opacity: 0.8;
+}
+
+.price-usdt {
+	font-size: 1rem;
+	opacity: 0.8;
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+	.card-container {
+	  flex: 1 1 calc(25% - 20px); /* 4 cards per row */
+	}
+}
+
+@media (max-width: 992px) {
+	.card-container {
+	  flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+	}
+}
+
+@media (max-width: 768px) {
+	.card-container {
+	  flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+	}
+}
+
+@media (max-width: 576px) {
+	.card-container {
+	  flex: 1 1 calc(100% - 20px); /* 1 card per row */
+	}
+}
+
+.footer {
+	background: #121212;
+	color: #fff;
+	padding: 15px 0;
+	font-size: 0.9rem;
+  }
+  
+  .footer-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .footer-left, .footer-right {
+	padding: 5px;
+  }
+  
+  .footer a {
+	color: #00bcd4;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+  .footer a:hover {
+	text-decoration: underline;
+  }
+  

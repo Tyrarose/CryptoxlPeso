@@ -1,0 +1,69 @@
+<%- include("header.ejs") %>
+<body class="gradient-background">
+  <section class="container">
+    <!-- Title Row -->
+    <div class="row">
+      <div class="title col-12 text-center">
+        <h1 class="main-title">CryptoxlPeso</h1>
+      </div>
+    </div>
+    <!-- Subtitle Row -->
+    <div class="row">
+      <div class="subtitle col text-center">
+        <p class="subtitle-text">
+          Start Your Trading Journey with Live Updates on Crypto Coins in Philippine Peso
+        </p>
+      </div>
+    </div>
+
+    <!-- Trending Coins Title -->
+    <div class="row trending-header">
+      <div class="col-6 text-start d-flex align-items-end">
+        <h2 class="title-text">Trending Coins Today</h2>
+      </div>
+      <div class="col-6 text-end d-flex align-items-end justify-content-end">
+        <p class="date-time"><%= new Date().toLocaleString() %></p>
+      </div>
+    </div>    
+
+    <!-- Cards Grid -->
+    <div class="coin-grid">
+      <% trendingCoins.coins.forEach(function(coin) { %>
+        <% 
+          const matchingCoin = userBTCurrency.find(c => c.symbol === coin.item.symbol);
+          let priceInPHP = matchingCoin ? matchingCoin.priceInPHP : 'N/A';
+
+          if (matchingCoin) {
+              const price = parseFloat(priceInPHP);
+              priceInPHP = price < 1 ? price.toFixed(6) : price.toFixed(3);
+          }
+
+          let priceUSDT;
+          const rawPrice = coin.item.data.price;
+          let usdAmount = typeof rawPrice === 'string' ? parseFloat(rawPrice.replace('$', '')) : (typeof rawPrice === 'number' ? rawPrice : 0);
+
+          // Check if USD amount is less than 1, then use 14 decimal places, otherwise use 5
+          priceUSDT = usdAmount < 1 ? usdAmount.toFixed(12) : usdAmount.toFixed(5);
+        %>
+
+        <div class="card-container">
+          <div class="custom-card">
+            <div class="icon-holder">
+              <img src="<%= coin.item.small %>" alt="<%= coin.item.name %>">
+            </div>
+            <div class="coin-info">
+              <div class="coin-grid-layout">
+                <div class="coin-name"><%= coin.item.name %></div>
+                <div class="price-local">₱<%= priceInPHP %></div>
+                <div class="symbol"><%= coin.item.symbol %></div>
+                <div class="price-usdt">$<%= priceUSDT %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% }) %>
+    </div>
+  </section>
+</body>
+<%- include("footer.ejs") %>
