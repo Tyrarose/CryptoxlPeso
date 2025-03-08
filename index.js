@@ -21,12 +21,11 @@ async function fetchTrending() {
 		return cache.data;
 	}
 
-	const response = await fetch(`${COINGECKO_API_URL}/search/trending`, {
+	const response = await fetch(`${COINGECKO_API_URL}/search/trending?x_cg_api_key=${process.env.COINGECKO_API_KEY}`, {
 		headers: {
-		  "User-Agent": "Mozilla/5.0",
-		  "x-cg-api-key": process.env.COINGECKO_API_KEY
+		  "User-Agent": "Mozilla/5.0"
 		}
-	  });
+	  });	  
 	  
 
 	if (!response.ok) {
