@@ -1,9 +1,12 @@
 import express from "express";
 import fetch from "node-fetch";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
+const COINGECKO_API_URL = process.env.COINGECKO_API_URL;
 
 app.set("view engine", "ejs");
 app.use(express.json());
