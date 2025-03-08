@@ -23,9 +23,11 @@ async function fetchTrending() {
 
 	const response = await fetch(`${COINGECKO_API_URL}/search/trending`, {
 		headers: {
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+		  "User-Agent": "Mozilla/5.0",
+		  "x-cg-api-key": process.env.COINGECKO_API_KEY
 		}
-	});
+	  });
+	  
 
 	if (!response.ok) {
 		throw new Error(`API call failed with status: ${response.status}`);
