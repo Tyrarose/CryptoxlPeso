@@ -21,12 +21,7 @@ async function fetchTrending() {
 		return cache.data;
 	}
 
-	const response = await fetch(`${COINGECKO_API_URL}/search/trending?x_cg_api_key=${process.env.COINGECKO_API_KEY}`, {
-		headers: {
-		  "User-Agent": "Mozilla/5.0"
-		}
-	  });	  
-	  
+	const response = await fetch(`${COINGECKO_API_URL}/search/trending?x_cg_api_key=${process.env.COINGECKO_API_KEY}`);	  
 
 	if (!response.ok) {
 		throw new Error(`API call failed with status: ${response.status}`);
